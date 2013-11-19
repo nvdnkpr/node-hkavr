@@ -1,0 +1,44 @@
+{
+    "name":"hkavr",
+    "main":"hkavr",
+    "version":"0.1.2",
+    "keywords":["harmann kardon",
+        "rs232",
+        "avr265",
+        "raspberry"
+    ],
+    "description":"Harmann & Kardon Audio/Video Receiver (AVR) RS232 driver",
+    "homepage":"http://stationweb.fr/",
+    "author":{
+        "name":"Vincent Laag",
+        "email":"vincent@stationweb.fr",
+        "url":"http://stationweb.fr/"
+    },
+    "repository":{
+        "type":"git",
+        "url":"https://github.com/stationweb/node-hkavr.git"
+    },
+    "engines":{
+        "node":">=0.10.0"
+    },
+    "dependencies":{
+        "serialport":">= 1.2.5",
+        "buffertools":">= 1.1.1"
+    },
+    "license":"MIT",
+    "readmeFilename":"README.md",
+    "contributors":[{
+            "name":"Vincent Laag",
+            "email":"vincent@stationweb.fr"
+        }
+    ],
+    "maintainers":[{
+            "name":"Vincent Laag",
+            "email":"vincent@stationweb.fr"
+        }
+    ],
+    "readme":"",
+    "bugs":{
+        "url":"https://github.com/stationweb/node-hkavr/issues"
+    }
+}
