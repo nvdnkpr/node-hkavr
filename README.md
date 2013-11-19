@@ -1,4 +1,4 @@
-# hkavr
+# NodeJs Module hkavr
 
 Harmann & Kardon Audio/Video Receiver (AVR) RS232 driver.
 
