@@ -8,20 +8,14 @@ var url 	= require('url');
 var SerialPort 	= require('serialport').SerialPort;
 require('buffertools');
 
-var avr = function(model) {
+var avr = function(model,servicePort,serialInterface,serialOptions) {
   
 	var AVR 		= require('./lib/avr'+model);
 	var pcsend 		= '504353454E44';
 	var pcdatatype 		= '02';
 	var pcdatalength 	= '04';
-	var serialPort 		= new SerialPort("/dev/ttyAMA0", {
-				    baudrate: 57600,
-				    databits: 8,
-				    parity: "none",
-				    stopbits: 1,
-				    flowControl: false
-				});
-				
+	var serialPort 		= new SerialPort(serialInterface, serialOptions);
+
 	serialPort.on("open", function () {
 	  /* log AVR output */
 	  serialPort.on('data', function(data) {
@@ -48,7 +42,7 @@ var avr = function(model) {
 	    }
 	    res.end();  
 	});
-	server.listen(8265);
+	server.listen(servicePort);
 	
 }
 exports.avr 	= avr;

@@ -1,4 +1,4 @@
-# NodeJs Module hkavr
+# hkavr
 
 Harmann & Kardon Audio/Video Receiver (AVR) RS232 driver.
 
@@ -10,8 +10,25 @@ Easy! With [npm](http://npmjs.org/):
 
 Now you can include the module in your project.
 
-	var avrServer = require('hkavr');
-	avrServer.avr('265');
+	// AVR265 module
+	var model 		= '265';
+
+	// webservice port configuration
+	var servicePort 	= 8265;
+
+	// Raspberry configuration for SerialPort
+	var serialInterface 	= '/dev/ttyAMA0';
+	var serialOption 	= {
+				    baudrate: 57600,
+				    databits: 8,
+				    parity: "none",
+				    stopbits: 1,
+				    flowControl: false
+				};
+
+	// initialisation
+	var server = require('hkavr');
+	server.avr(model,servicePort,serialInterface,serialOption);
 
 ## Note
 
@@ -19,20 +36,17 @@ Still in development.
 
 Available(s) driver(s) for the following serie(s):
 
-* AVR265
+* AVR265 
 
-Limited to Raspberry Pi with:
-
-* serial port on /dev/ttyAMA0
 * need good user permissions on the port
 
-## About
+## Use
 
 The module start a simple HTTP webservice on the Raspberry connected to the AVR RS232 port.
 
-## User Manual
+## Manual
 
-User manual available here: http://stationweb.fr/node-hkavr
+http://stationweb.fr/node-hkavr
 
 ## Development in progress & todo
 
@@ -44,7 +58,6 @@ User manual available here: http://stationweb.fr/node-hkavr
 * Extend with socket
 * Add configuration option object at start 
   - http server or direct command
-  - serial port configuration for other *nux,*nix
 * Extend module for other series (AVR 2650, AVR 365, AVR 3650, AVR 635, AVR 630 , AVR 435 ,AVR 430)
 
 ## License
